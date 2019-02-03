@@ -1,0 +1,33 @@
+### R MARKDOWN WEBSITE ###
+
+## Useful comands ##
+blogdown::serve_site() # preview the website
+blogdown::new_post() # opens a window to create a new post
+
+## Set working directory
+setwd("D:/Documents/R_markdown")
+getwd()
+
+## Installing package DEVTOOLS
+install.packages("devtools")
+install.packages("rlang")
+install.packages("stringi")
+install.packages("blogdown")
+## Install R markdown 
+#devtools::install_github('rstudio/blogdown')
+
+## Set working directory
+setwd("D:/Documents/R_markdown")
+getwd()
+
+## Where do you want to create the new site?
+setwd("D:/Documents/R_site2")
+getwd()
+
+# Create new site
+
+blogdown::new_site()
+
+# load r markdown
+library(blogdown)
+install_theme("https://github.com/aerohub/hugrid")

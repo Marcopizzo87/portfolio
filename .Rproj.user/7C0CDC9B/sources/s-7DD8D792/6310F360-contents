@@ -1,0 +1,215 @@
+## library(xx) loads up any packages needed. Packages contain builtin functions that we can use, that might not
+## be contained in base R. dplyr is super useful for aggregating data in different ways.
+
+
+## Remove the hashes below if you have not installed the dplyr package on your copy of R yet.
+# install.packages("dplyr")
+# install.packages("tibble")
+# install.packages("lubridate")
+# install.packages("stringr")
+ 
+library(dplyr)
+library(tibble)
+library(lubridate)
+library(stringr) 
+
+### SET WORKING DIRECTORY ----
+
+setwd("D:/Google Drive/TempCheck")
+getwd()
+
+
+### LOAD FILES ----
+
+# Load csv file
+
+d.f <- read.csv("Countries2.csv", stringsAsFactors = FALSE, skipNul = TRUE, header = TRUE, na.strings="")
+
+head(d.f,3)
+
+### TIME CHECK ----
+
+d.f_bkp <- d.f
+
+
+d.f_cam <- d.f[d.f$Country == "CAM",]
+d.f_cam$Collect_ti <- as.POSIXlt(d.f_cam$Collect_ti , tz="UTC", "%Y/%m/%d %H:%M:%S")
+d.f_cam$transmit_t <- as.POSIXlt(d.f_cam$transmit_t , tz="UTC", "%Y/%m/%d %H:%M:%S")
+
+# Replace the slash with an hyphen
+
+d.f$transmit_t <- str_replace_all(d.f$transmit_t,"/","-")
+d.f$Collect_ti <- str_replace_all(d.f$Collect_ti,"/","-")
+
+# Get the time as posixlt to make hte difference after
+
+d.f$Collect_ti <- as.POSIXlt(d.f$Collect_ti , tz="UTC", "%Y-%m-%d %H:%M")
+d.f$transmit_t <- as.POSIXlt(d.f$transmit_t , tz="UTC", "%Y-%m-%d %H:%M")
+
+test
+rm(test2)
+
+d.f_drc
+
+
+test <- as.POSIXlt(d.f$transmit_t, tz="UTC", "%Y/%m/%d %H:%M")
+
+test <- d.f$Collect_ti
+
+test2 <- strptime(d.f$transmit_t, "%Y-%m-%d %H:%M:%S")
+
+test2 <- d.f$A_start[1:3]
+test <- str_replace_all(test, "T", " ")
+test <- str_replace_all(test, "Z", "")
+test
+
+test2 <- as.POSIXct(test, tz="UTC", "%Y-%m-%d %H:%M:%OS")
+
+x <- test2[2] - test2[3]
+test2
+
+
+
+
+prods.all$Date2 <- mdy(prods.all$Date2)
+
+
+require(stringr) 
+timenoT <- str_replace_all("2013-04-05T07:49:54", "T", " ") 
+timep <- strptime(timenoT, "%Y-%m-%d %H:%M:%S%")
+timep
+
+d.f_bkp <- d.f
+
+d.f <- d.f_bkp
+
+
+d.f$A_start <- str_replace_all(d.f$A_start, "T", " ")
+d.f$A_start <- str_replace_all(d.f$A_start, "Z", "")
+d.f$A_end <- str_replace_all(d.f$A_end, "T", " ")
+d.f$A_end <- str_replace_all(d.f$A_end, "Z", "")
+d.f$A_start <- as.POSIXct(d.f$A_start, tz="UTC", "%Y-%m-%d %H:%M:%OS")
+d.f$A_end <- as.POSIXct(d.f$A_end, tz="UTC", "%Y-%m-%d %H:%M:%OS")
+
+#d.f[order(d.f$En_ID),]
+
+d.f <- d.f %>%
+  arrange(A_En_ID, A_start) %>%
+  mutate(., survey_time = A_end - A_start) %>%
+  group_by(`A_En_ID`)  %>%
+  mutate(average = mean(survey_time))
+
+Average_time <- d.f %>%
+  group_by(`A_En_ID`)  %>%
+  summarise(average = mean(survey_time))
+
+
+### FIX ISSUES WITH SKYP LOGICS (if any) ----
+
+## Autofill some values in our data frame. 
+
+# These correct fmaxor issues in skip logic, such as filling in state and county if they were the same as before,
+# or putting "0" for reported population if the KI said none of that population is present.
+
+# d.f$E.disp_state[d.f$E.displacement_locat_same == "yes"] <- d.f$D.info_state[d.f$E.displacement_locat_same == "yes"]
+# d.f$E.disp_county[d.f$E.displacement_locat_same == "yes"] <- d.f$D.info_county[d.f$E.displacement_locat_same == "yes"]
+# d.f$F.f1.hc_count[d.f$F.hc_now == "no"] <- as.integer(0) ## These population ones fill in reported population as 0 if the KI said no to that population being in the village!
+# d.f$F.f2.idp_count[d.f$F.idp_now == "no"] <- as.integer(0)
+# d.f$F.f3.hcdisp_count[d.f$F.hcdisp_now == "no"] <- as.integer(0)
+# d.f$K.boreholes_total[d.f$K.boreholes_functioning == 0] <- as.integer(0)
+
+### REMOVE COLUMNS ----
+
+## Remove columns we don't need. 
+
+d.f <- select(d.f, everything(), -contains("F_"))
+
+
+### EXPORT PARTIAL DATASETS ----
+
+## Esport portions of a dataset as new csv. 
+
+d.f %>%
+  select(starts_with("A_"), starts_with("B_")) %>%
+  write.csv(file = "4_Disaggregated_Data/15_March_2017/disag_data1.csv")
+
+
+d.f %>%
+  select(starts_with("A_"), starts_with("C_"),  starts_with("D_"), starts_with("E_") ) %>%
+  write.csv(file = "4_Disaggregated_Data/15_March_2017/disag_data2.csv")
+
+
+
+## GETTING THE RESULTS!
+
+col_list1 <- c("B_Age", "B_Sexe_", "B_A_quelle_groupe_ethnique_vous_identifiez_vous?", "B_Born_here", "C_1__Heard_REDD+?", "D_2__Reunion_implic_REDD", "D_2_1_When_reun", "D_2_3_Particip_reun", "D_2_4_Invited_reun", "D_2_5_Informed_result", "D_2_6_Major_partic", "D_2_8_maj_memb_pres_reun", "D_2_12_reun_in_villag", "D_2_14_reun_your_lang", "D_2_15_reun_underst_REDD", "D_2_16_reun_REDD_comf_peop", "D_2_17_reun_peop_exp_opin", "D_2_18_Signe_doc", "D_Membre_comment")
+
+
+d.f_1 <- d.f[,names(d.f) %in% col_list1]
+
+names(d.f_1)
+
+d.f_1
+
+
+names(d.f)
+
+idx <- match(names(d.f), col_list1)
+idx <- sort(c(idx-1, idx))
+
+NewDF <- MAINDF[,idx] 
+
+
+select_one <- d.f %>%
+  select(everything(), -starts_with("A."), -starts_with("B."), -starts_with("C."), -one_of(remove_d), 
+         -starts_with("D.d1"), -starts_with("E."), -starts_with("P"), -starts_with("Q")) %>%
+  # group_by_(.dots = c("header_1", "header_2", "header_3")) %>%  # In case you need to apply the analysis to subgroups
+  summarise_all(funs(mode_mean2()))
+
+## N.B.  .dots basically accepts the column values for the function. In this function, we are saying group by the three columns listed!
+
+## Now we want to clean the dataset for some skiplogic errors and some NAs that have appeared after our settlement
+## aggregation has finished. This looks long, but it's very simple! Then we can save it, print it, and BAM! Done.
+
+
+
+## Let's get those select_multiples corrected. Currently, they get aggregated without considering each individual option. So what we are going to do here
+## is look at each variables logical TRUE/FALSE as output by ODK, and aggregated correctly in our functions. Then if the value is TRUE, we will put it in
+## that villages select_multiple. So say we have a value of TRUE for shelter materials "grass" and "poles (NGO)", then that will be in the select multiple
+## options for the village, just like we have for an individual KI!
+
+settlement$G.food_now_type <- apply(select(as.data.frame(settlement), starts_with("G.food_now_type.")), 1, function(u) paste( substring(names(which(u)),17), collapse = " "))
+settlement$G.food_coping <- apply(select(as.data.frame(settlement), starts_with("G.food_coping.")), 1, function(u) paste( substring(names(which(u)),15), collapse = " "))
+settlement$I.health_items <- apply(select(as.data.frame(settlement), starts_with("I.health_items.")), 1, function(u) paste( substring(names(which(u)),16), collapse = " "))
+settlement$J.shelter_materials <- apply(select(as.data.frame(settlement), starts_with("J.shelter_materials.")), 1, function(u) paste( substring(names(which(u)),21), collapse = " "))
+settlement$J.mosquito_nets_usage <- apply(select(as.data.frame(settlement), starts_with("J.mosquito_nets_usage.")), 1, function(u) paste( substring(names(which(u)),23), collapse = " "))
+settlement$L.current_activities <- apply(select(as.data.frame(settlement), starts_with("L.current_activities.")), 1, function(u) paste( substring(names(which(u)),22), collapse = " "))
+settlement$M.edu_levels_available <- apply(select(as.data.frame(settlement), starts_with("M.edu_levels_available.")), 1, function(u) paste( substring(names(which(u)),24), collapse = " "))
+settlement$N.prot_type <- apply(select(as.data.frame(settlement), starts_with("N.prot_type.")), 1, function(u) paste( substring(names(which(u)),13), collapse = " "))
+settlement$O.mine_areas <- apply(select(as.data.frame(settlement), starts_with("O.mine_areas.")), 1, function(u) paste( substring(names(which(u)),14), collapse = " "))
+
+## Counting KI coverage per village!
+
+ki_coverage <- d.f %>%
+  select(c(D.info_state, D.info_county, D.info_settlement, A.disp_status)) %>%
+  group_by_(.dots = c("D.info_state", "D.info_county", "D.info_settlement")) %>%
+  summarise(length(A.disp_status))
+
+## Combining settlement and county name for when we join to ArcGIS!! Also adding in the column for KI coverage
+
+settlement <- settlement %>%
+  ungroup() %>%
+  mutate(D.settlecounty = paste(D.info_settlement, D.info_county, sep = "")) %>%
+  mutate(D.ki_coverage = as.numeric(ki_coverage$`length(A.disp_status)`)) %>%
+  select(D.info_state, D.info_county, D.info_settlement, D.settlecounty, D.ki_coverage, F.hc_now:O.mine_acc_numb)
+
+## Adding KI coverage and month columns
+
+settlement <- add_column(as.data.frame(settlement), month = rep("15_March_2017", len = nrow(settlement)), .before = 1)
+
+## Writing the files, we are done!
+
+write.csv(settlement, "3_Aggregated_settlement_Data/15_March_2017/REACH_SSD_AoK_Settlements_Mar2017.csv", na = "", row.names = FALSE)
+write.csv(settlement[settlement$D.info_state == "Jonglei",], "3_Aggregated_settlement_Data/15_March_2017/REACH_SSD_AoK_Jonglei_Settlements_Mar2017.csv", na = "", row.names = FALSE)
+write.csv(settlement[settlement$D.info_state == "Unity",], "3_Aggregated_settlement_Data/15_March_2017/REACH_SSD_AoK_Unity_Settlements_Mar2017.csv", na = "", row.names = FALSE)
+write.csv(settlement[settlement$D.info_state == "UpperNile",], "3_Aggregated_settlement_Data/15_March_2017/REACH_SSD_AoK_Upper_Nile_Settlements_Mar2017.csv", na = "", row.names = FALSE)

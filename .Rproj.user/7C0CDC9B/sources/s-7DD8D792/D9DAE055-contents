@@ -1,0 +1,55 @@
+baseURL = "https://example.com/"
+languageCode = "en-us"
+title = "MarcoPizzolatoPortfolio"
+theme = "mediumish-gohugo-theme"
+summaryLength = 25
+copyright = "Marco Pizzolato - All rights reserved"
+enableEmoji = true
+publishDir = "docs"
+#disqusShortname = "your-shortname-here"
+#googleAnalytics = "UA-1XXXXXXX1-1"
+
+[params]
+  logo = "/images/Portfolio-02.png"
+  description ="Portofolio"
+  #mailchimp = "you can provide a mailchimp-link here"
+
+[params.author] # not sure where these go
+  name = "Marco Pizzo"
+  thumbnail = "/images/none.png"
+  description = "Creator of this blog."
+
+[params.index]
+  picture = "/images/marcopizzo.jpg"
+  title = "Marco Pizzolato"
+  subtitle = "Gis Expert & Environmental Scientist"
+  mdtext = '''
+\
+The combination of GIS, data analysis, and data visualization allows me to explore the data, uncover patterns and relationships, and convey information to a wide audience; going beyond traditional statistical methods
+\
+\
+'''
+  alertbar = false
+
+[params.social]
+  github = "Marcopizzo87"
+  linkedin = "pizzolatomarco"
+  # xing = "<username>"
+  # medium = "<username>"
+
+## Main Menu
+[[menu.main]]
+    name = "Blog"
+    weight = 100
+    identifier = "blog"
+    url = "/blog"
+[[menu.main]]
+    name = "About Me"
+    identifier = "about"
+    weight = 200
+    url = "/"
+[[menu.main]]
+    name = "Imprint"
+    identifier = "imprint"
+    weight = 200
+    url = "/static/imprint"
