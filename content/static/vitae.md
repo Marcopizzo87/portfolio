@@ -1,5 +1,5 @@
 ---
-date: 2018-10-07T11:12:00+02:00
+date: 2019-02-06T11:12:00+02:00
 ---
 <dl>
     <dt class="vitaetitle">STUDIES</dt>
