@@ -3,7 +3,7 @@ title: "Information Products Collection"
 date: 2015-02-05T11:40:14+02:00
 publishdate: 2015-05-08T11:40:14+02:00
 imagethumb: "/images/published_maps/particip_mapping.jpg"
-image: "/images/published_maps/particip_mapping_x.jpg"
+image: "/images/published_maps/ssd_focusgroup.jpg"
 comments: false
 description: "List of all information products published with REACH Initiative"
 ---
@@ -11,9 +11,9 @@ description: "List of all information products published with REACH Initiative"
 <div class='container'>
 <h1>Maps, Factsheets and more..</h1>
 
-This is a collection of the information products (IPs) I officially published while working for the <b><a href="http://www.reach-initiative.org/reach/about-reach">REACH Initiative</a></b> in South Sudan. The software used to produce them were varying depending on the type of products. Mainly were used ArcGIS, Qgis, Adobe Illustrator, Adobe Indesign, R and MS Office. The production of maps and analysis were extending far beyond this list with numerous other outputs shared daily both internally and with partners. 
+<p>This is a collection of the information products (IPs) I officially published while working for the <b><a href="http://www.reach-initiative.org/reach/about-reach">REACH Initiative</a></b> in South Sudan. The software used to produce them were varying depending on the type of products. Mainly were used ArcGIS, Qgis, Adobe Illustrator, Adobe Indesign, R and MS Office. The production of maps and analysis were extending far beyond this list with numerous other outputs shared daily both internally and with partners. 
 
-Explore the list using the search bar below to filter by product <b>map/factsheet/report</b>, by topic <b>cholera, food security, wash</b> or simply by date of production.
+Explore the list using the search bar below to filter by product <b>map/factsheet/report</b>, by topic <b>cholera, food security, wash</b> or simply by date of production. </p>
 
 </div>
 
