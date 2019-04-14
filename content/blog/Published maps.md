@@ -1,7 +1,7 @@
 ---
-title: "Information Products Collection"
-date: 2015-02-05T11:40:14+02:00
-publishdate: 2015-05-08T11:40:14+02:00
+title: "Information Products"
+date: 2018-12-15T11:40:14+02:00
+publishdate: 2018-12-15T11:40:14+02:00
 imagethumb: "/images/published_maps/particip_mapping.jpg"
 image: "/images/published_maps/ssd_focusgroup.jpg"
 comments: false
@@ -9,11 +9,13 @@ description: "List of all information products published with REACH Initiative"
 ---
 
 <div class='container'>
-<h1>Maps, Factsheets and more..</h1>
+<h1>Maps, Factsheets, and more..</h1>
+<p></p> 
+<p>This is a collection of the information products I officially published while working for the <b><a href="http://www.reach-initiative.org/reach/about-reach">REACH Initiative</a></b> in South Sudan between the years 2015 and 2017. 
+The combination of software used were varying depending on the type of products. Mainly were used ArcGIS, Qgis, Adobe Illustrator, Adobe Indesign, R and MS Office. 
+The production of maps and analysis was extending far beyond this list, with numerous other outputs shared daily both internally and with partners on the ground.</p> 
 
-<p>This is a collection of the information products (IPs) I officially published while working for the <b><a href="http://www.reach-initiative.org/reach/about-reach">REACH Initiative</a></b> in South Sudan. The software used to produce them were varying depending on the type of products. Mainly were used ArcGIS, Qgis, Adobe Illustrator, Adobe Indesign, R and MS Office. The production of maps and analysis were extending far beyond this list with numerous other outputs shared daily both internally and with partners. 
-
-Explore the list using the search bar below to filter by product <b>map/factsheet/report</b>, by topic <b>cholera, food security, wash</b> or simply by date of production. </p>
+<p>Explore the list using the search bar below to filter by product <b>map/factsheet/report</b>, by topic <b>cholera, food security, wash</b> or simply by date of production. </p>
 
 </div>
 
