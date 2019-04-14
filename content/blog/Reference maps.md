@@ -5,15 +5,13 @@ publishdate: 2018-10-07
 imagethumb: "/images/basemaps/ssd_ref_1mb-min.jpg"
 image: "/images/basemaps/ssd_ref_16mb-min.jpg"
 comments: false
-description: "bububbbu This is the descrition of my post esticazzi impanati"
+description: "Showcase of reference maps made in South Sudan"
 lens: "true"
 zoom: "true"
 ---
 <div class='container'>
-<h1>This is another post</h1>
+<h1>Maps to support NGOs</h1>
 
-
-<h1>Image Modal</h1>
 <p>In this example, we use CSS to create a modal (dialog box) that is hidden by default.</p>
 
 

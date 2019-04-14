@@ -1,5 +1,5 @@
 ---
-title: "Published maps"
+title: "Information Products Collection"
 date: 2015-02-05T11:40:14+02:00
 publishdate: 2015-05-08T11:40:14+02:00
 imagethumb: "/images/published_maps/particip_mapping.jpg"
@@ -8,9 +8,17 @@ comments: false
 description: "List of all information products published with REACH Initiative"
 ---
 
+<div class='container'>
+<h1>Maps, Factsheets and more..</h1>
+
+This is a collection of the information products (IPs) I officially published while working for the <b><a href="http://www.reach-initiative.org/reach/about-reach">REACH Initiative</a></b> in South Sudan. The software used to produce them were varying depending on the type of products. Mainly were used ArcGIS, Qgis, Adobe Illustrator, Adobe Indesign, R and MS Office. The production of maps and analysis were extending far beyond this list with numerous other outputs shared daily both internally and with partners. 
+
+Explore the list using the search bar below to filter by product <b>map/factsheet/report</b>, by topic <b>cholera, food security, wash</b> or simply by date of production.
+
+</div>
 
 <div class="container">
-<h4><small>Try to search for something:</small></h4>
+<h5><small>Try to search for something:</small></h5>
 <!-- Search bar -->
 <input class="form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search.." title="Type in a name">
 </div>
