@@ -10,7 +10,7 @@ description: "Batch extraction of shapefile metadata and attribute details using
 
 # Hunting shapefiles in unknown folder structures
 <p></p>
-<p>Life saver scrip when you need ot know at a glance how many shapefiles in a folder structure, their projections and the list and type of attribute of each one of them. 
+<p>Life saver scrip when you need to know at a glance how many shapefiles there are in a folder structure, their projections and the list and type of attribute of each one of them. 
 <br>
 <br>
 ....coming soon...
