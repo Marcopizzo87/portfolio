@@ -12,7 +12,7 @@ description: "List of all information products published with REACH Initiative"
 <h1>Maps, Factsheets, and more..</h1>
 <p></p> 
 <p>This is a collection of the information products I officially published while working for the <b><a href="http://www.reach-initiative.org/reach/about-reach">REACH Initiative</a></b> in South Sudan between the years 2015 and 2017. 
-The combination of software used were varying depending on the type of products. Mainly were used ArcGIS, Qgis, Adobe Illustrator, Adobe Indesign, R and MS Office. 
+The combination of software used was varying depending on the type of products. Mainly were used ArcGIS, Qgis, Adobe Illustrator, Adobe Indesign, R and MS Office. 
 The production of maps and analysis was extending far beyond this list, with numerous other outputs shared daily both internally and with partners on the ground.</p> 
 
 <p>Explore the list using the search bar below to filter by product <b>map/factsheet/report</b>, by topic <b>cholera, food security, wash</b> or simply by date of production. </p>
