@@ -78,10 +78,10 @@ Happy exploring and get in touch if you want to know more!
     name = "Curriculum"
     identifier = "cv"
     weight = 2
-    url = "/vitae"
+    url = "/curriculum/vitae"
 
 [[menu.main]]
     name = "About Me"
     identifier = "about"
     weight = 3
-    url = "/about"
+    url = "/about/bio"
